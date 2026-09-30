@@ -12,7 +12,7 @@ GitHub Pages publishes from `main` at `/ (root)`. The live hosting page is https
 
 ## Google Sheet order preview
 
-Open [the Sheet preview on the test page](https://www.creativeyouthawards.org/new-page?cya-sheet-test=1). This URL reads the 25-row [public test Sheet](https://docs.google.com/spreadsheets/d/1nJKIBBEJp12m66648PUsGo0mKa_2ayKh04P1cmfd5nw/edit?gid=1857378834). Physical row order controls display order; the `sort_order` values are ignored. Refresh the preview after moving a row. The ordinary `/new-page` URL continues to show the scrolling collection, and neither URL changes publish dates. Before using Sheet mode for a full gallery, populate and validate all intended entries and raise `minimumRows` near the expected count.
+Open [the Sheet preview on the test page](https://www.creativeyouthawards.org/new-page?cya-sheet-test=1). This URL reads the 25-row [public test Sheet](https://docs.google.com/spreadsheets/d/1nJKIBBEJp12m66648PUsGo0mKa_2ayKh04P1cmfd5nw/edit?gid=1857378834). Physical row order controls display order. Select an entire row by clicking its row number, then choose Edit → Move row up/down or drag the row number to a new position. Refresh the preview after moving a row. The ordinary `/new-page` URL continues to show the scrolling collection, and neither URL changes publish dates. Before using Sheet mode for a full gallery, populate and validate all intended entries and raise `minimumRows` near the expected count.
 
 ## Future changes
 
