@@ -1,19 +1,17 @@
 # Creative Youth Awards Summary Block plugin
 
-This is the original CYA plugin for the native Squarespace Summary Block on `/new-page`. It loads more `/2026` entries as visitors scroll. The separate Google Sheet ordering mode remains off during the collection test.
+This plugin extends the native Squarespace Summary Block on `/new-page`. It loads more `/2026` blog entries as visitors scroll. Google Sheet ordering is built in but **off** during the collection test. The `/2026` blog itself is not edited.
 
-## One-time setup
+## One-time Squarespace setup
 
-1. Put these files in a **public repository controlled by Creative Youth Awards**, such as `cya-summary-plugin`. Give the people who maintain the gallery repository write access.
-2. In the repository's **Settings → Pages**, select **Deploy from a branch**, the `main` branch, and `/ (root)`. Wait for the Pages URL to publish.
-3. Confirm that the published URL ending in `/cya-summary-plugin.js` displays JavaScript rather than a 404 page.
-4. In the `/new-page` Squarespace editor, replace the current long plugin Code Block **once** with the single `<script>` tag in `loader.template.html`, using the actual Pages URL. Keep the existing Summary Block.
-5. Save. On the published `/new-page`, scroll past the first 30 entries. The status should advance to 50 and the new images should appear.
+1. Keep the existing Summary Block on `/new-page`. In the Code Block on that page, replace the long plugin code with the single script tag in [`loader.template.html`](loader.template.html).
+2. Save the page, open its published URL, and scroll past the first batch. Check that more cards appear with images.
+3. If anything goes wrong, restore the previous Code Block text; the blog entries and their publish dates are unaffected.
 
-Do not paste the template's `YOUR-ORG` placeholder. The precise loader URL must be verified after publishing.
+GitHub Pages is configured to publish from `main` at `/ (root)`. The live site is https://maliking.github.io/cya-summary-plugin/.
 
 ## Future changes
 
-Edit `plugin-source.html`, run `node build.mjs`, and publish both the source and generated `cya-summary-plugin.js` to the same repository. The Squarespace Code Block remains the same. Browser caches may briefly show an older version after a deployment; refresh the published page before troubleshooting.
+Edit `plugin-source.html`, run `node build.mjs`, and commit both the source and generated `cya-summary-plugin.js` to this repository. GitHub Pages publishes the new script; the Squarespace Code Block stays the same. Browser caches may briefly show the previous version.
 
-The code is public in a public repository. Do not put private submission data or Google Sheet credentials in it. The plugin reads public gallery pages from the same Squarespace host. Keep repository write access limited to the people who maintain the site.
+The repository is currently owned by `maliking`. Add the people maintaining the gallery as collaborators. If ownership or the repository name changes, update the script URL in Squarespace too. The code is public, so keep private submission data and credentials out of it.
