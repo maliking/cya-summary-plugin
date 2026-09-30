@@ -10,7 +10,9 @@ It adds entries INSIDE the same Summary Block and can move an entry beyond
 item 30 to the top as a reversible demonstration. Refresh to reset.
 A manual button appears if automatic loading is unavailable or fails.
 
-For Sheet mode, use a separate public-only Google Sheet with headers
+The URL /new-page?cya-sheet-test=1 previews the 25-row public test Sheet;
+the ordinary /new-page URL stays in collection mode. For a full Sheet mode,
+use a separate public-only Google Sheet with headers
 post_url,title,category,award,image_url. The first three are required;
 image_url is recommended for speed. Missing images are requested from the
 public post pages as cards appear. Set mode to 'sheet' and paste its edit
@@ -276,6 +278,11 @@ untouched. Before a full launch, set minimumRows near the expected count.
   }
 
   function mount(document, browser, config = SETTINGS) {
+    if (new URLSearchParams(browser.location.search).get('cya-sheet-test') === '1') {
+      config = {...config, mode:'sheet',
+        sheetUrl:'https://docs.google.com/spreadsheets/d/1nJKIBBEJp12m66648PUsGo0mKa_2ayKh04P1cmfd5nw/edit?gid=1857378834',
+        minimumRows:25};
+    }
     // Request the archive on this page's host, including Squarespace preview
     // domains when they serve both pages, so the fetch stays same-origin.
     config = {...config, collectionUrl:collectionOnCurrentOrigin(config, browser)};

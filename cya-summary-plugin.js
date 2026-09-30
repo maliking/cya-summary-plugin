@@ -215,6 +215,11 @@
   }
 
   function mount(document, browser, config = SETTINGS) {
+    if (new URLSearchParams(browser.location.search).get('cya-sheet-test') === '1') {
+      config = {...config, mode:'sheet',
+        sheetUrl:'https://docs.google.com/spreadsheets/d/1nJKIBBEJp12m66648PUsGo0mKa_2ayKh04P1cmfd5nw/edit?gid=1857378834',
+        minimumRows:25};
+    }
     // Request the archive on this page's host, including Squarespace preview
     // domains when they serve both pages, so the fetch stays same-origin.
     config = {...config, collectionUrl:collectionOnCurrentOrigin(config, browser)};
